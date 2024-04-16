@@ -4,6 +4,7 @@ resource "aws_instance" "dbInstance" {
   key_name               = "docker"
  count = "1"
   subnet_id              = aws_subnet.private_subnet.id
+ security_groups            = [aws_security_group.instance_sg.id]
  tags = {
   Name = "dbInstance"
  }
